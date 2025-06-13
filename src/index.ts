@@ -1,8 +1,14 @@
 import Express from "express";
+import usersRoutes from "./features/users/routes";
 
-const app = Express();
 const port = 5001;
+const app = Express();
+app.use(Express.json());
+
 
 app.listen(port,()=>{
-    console.log(`API listening at port ${port}`);
+    console.log(`API iniciada en el puerto ${port}`);
 });
+
+// Rutas base de los features
+app.use("/api/users", usersRoutes);
